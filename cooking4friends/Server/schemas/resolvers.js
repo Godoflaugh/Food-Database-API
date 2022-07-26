@@ -1,3 +1,4 @@
+
 const { Recipe, User } = require('../models')
 
 const resolvers = {
@@ -5,6 +6,7 @@ const resolvers = {
     allUsers: async () => {
       return User.find().sort({ createdAt: -1 })
     },
+
 
     oneUser: async (parent, { username }) => {
       return User.findOne({ username: username })
