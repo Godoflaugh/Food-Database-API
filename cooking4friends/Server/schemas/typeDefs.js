@@ -1,26 +1,16 @@
 const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
-
-type User {
-  _id: ID
-  username: String
-  email: String
-  friends: []
-}
-
-type Recipe {
-  _id: ID
-  recipeName: String
-  username: String
-  ingredients: String
-  cookingTime: String
-  instructions: String
-  equipment: String
-  img: String
-  comments: [Comment!]!
-
-}
+ type Recipe {
+   _id: ID!
+   recipeName: String!
+   username: String!
+   ingredients: String!
+   cookingTime: Number!
+   createdAt: Date
+   instructions: String!
+   equipment: String!
+ }
 
 type Query {
   #Query to find all users, and a query to find one user
