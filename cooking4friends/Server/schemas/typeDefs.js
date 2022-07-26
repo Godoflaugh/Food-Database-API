@@ -12,10 +12,31 @@ const typeDefs = gql`
    equipment: String!
  }
 
+type User {
+  _id: ID
+  username: String
+  email: String
+  friends: []
+}
+
+type Recipe {
+  _id: ID
+  recipeName: String
+  username: String
+  ingredients: String
+  cookingTime: String
+  instructions: String
+  equipment: String
+  img: String
+  comments: [Comment!]!
+
+}
+
 type Query {
   #Query to find all users, and a query to find one user
   allUsers: [User]!
   oneUser: (userId: ID!): User
+
 
   #Query to find all recipes and a query to find one recipe
   allRecipes: [Recipe]!

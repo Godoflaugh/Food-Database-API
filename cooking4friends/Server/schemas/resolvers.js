@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server-express')
-const
+const { Recipe, User } = require('../models')
+
 const resolvers = {
   Query: {
     string: async () => {
@@ -8,6 +9,7 @@ const resolvers = {
     recipe: async () => {
       return Recipe.find({})
     },
+
 
     oneUser: async (parent, { username }) => {
       return User.findOne({ username: username })
