@@ -15,7 +15,7 @@ const recipeSchema = new Schema(
       required: true,
       //* This needs to relate to a user that exists.
       ref: "user"
-    }
+    },
     ingredients: {
       type: String,
       required: true,
@@ -36,7 +36,29 @@ const recipeSchema = new Schema(
       type: String,
       required: true,
     },
-    comments: [Comments],
+    img: {
+      data: Buffer,
+      contentType: String
+    },
+    likes: [
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    ],
+    comments: [
+      {
+        commentBody: {
+          type: String,
+          required: true,
+          minlength: 1,
+          maxlength: 280,
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+          get: (timestamp) => dateFormat(timestamp),
+        }
+      }
+    ],
   },
   {
     toJSON: {
@@ -46,12 +68,11 @@ const recipeSchema = new Schema(
   }
 )
 
-//*Do we need to create a thumbsup schema? It's not referring to anything in the current set up
 recipeSchema
-  .virtual('thumbsup')
+  .virtual('likes')
   //getter
   .get(function () {
-    return this.thumbsup.length
+    return this.likes.length
   })
 
 const Recipe = model('recipe', recipeSchema)

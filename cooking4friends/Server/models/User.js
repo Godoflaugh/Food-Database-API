@@ -19,14 +19,14 @@ const userSchema = new Schema(
       unique: true,
     },
 
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Comments"
-      }
-    ]
+    // comments: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Comments"
+    //   },
+    // ],
 
-  friends: [
+    friends: [
       {
         type: Schema.Types.ObjectId,
         ref: "User"
