@@ -1,5 +1,10 @@
 const { gql } = require('apollo-server-express')
 const { Recipe, User } = require('../models')
+const { GraphQLDateTime } = require('graphql-iso-date')
+
+const customScalarResolver = {
+  Date: GraphQLDateTime
+}
 
 const resolvers = {
   Query: {
@@ -22,19 +27,13 @@ const resolvers = {
     oneRecipe: async (parent, { recipeName }) => {
       return Recipe.findOne({ recipeName: recipeName })
     },
-  }
+  },
 
   Mutation: {
     createUser: async (parent, { username, email }) => {
       return User.create({ username, email })
     },
-    updateUser: async (parent, { username }) => {
-      return User.findOneAndUpdate(
-        { username: username },
-        {},
-        {},
-      )
-    },
+
     createRecipe: async (parent, { recipeName, username, ingredients, cookingTime, instructions, equipment, img }) => {
       return Recipe.create({ recipeName, username, ingredients, cookingTime, instructions, equipment, img })
     },
@@ -43,19 +42,18 @@ const resolvers = {
         { _id: recipeId },
         { $addToSet: { comments: { commentBody } } },
         { new: true }
-
       )
     },
     removeComment: async (parent, { recipeId, commentId }) => {
       return Recipe.findOneAndUpdate(
         { _id: recipeId },
         { $pull: { comments: { _id: commentId } } },
-        { new: true }
+        { new: true },
       )
-    }
-  }
+    },
+  },
 }
 
 
 
-module.exports = resolvers
+module.exports = customScalarResolver, resolvers

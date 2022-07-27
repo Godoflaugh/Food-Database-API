@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"
+const { Schema, model } = require("mongoose")
 const dateFormat = require('../utils/dateFormat')
 
 const recipeSchema = new Schema(
@@ -40,10 +40,6 @@ const recipeSchema = new Schema(
       data: Buffer,
       contentType: String
     },
-    likes: [
-      type: Schema.Types.ObjectId,
-      ref: "User"
-    ],
     comments: [
       {
         commentBody: {
@@ -68,12 +64,7 @@ const recipeSchema = new Schema(
   }
 )
 
-recipeSchema
-  .virtual('likes')
-  //getter
-  .get(function () {
-    return this.likes.length
-  })
+
 
 const Recipe = model('recipe', recipeSchema)
 module.exports = Recipe

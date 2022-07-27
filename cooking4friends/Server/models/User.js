@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"
+const { Schema, model } = require("mongoose")
 const dateFormat = require('../utils/dateFormat')
 
 const userSchema = new Schema(
