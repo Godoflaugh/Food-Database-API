@@ -1,7 +1,6 @@
-const { connect, connection} = require('mongoose');
+const mongoose = require('mongoose');
 
-connect(process.env.MONGODB_URL,
-  {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/foodzDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

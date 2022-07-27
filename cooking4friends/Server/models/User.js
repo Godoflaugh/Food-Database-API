@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"
+const { Schema, model } = require("mongoose")
 const dateFormat = require('../utils/dateFormat')
 
 const userSchema = new Schema(
@@ -29,7 +29,7 @@ const userSchema = new Schema(
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
       }
     ]
   },
