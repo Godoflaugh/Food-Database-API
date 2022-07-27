@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import Navbar from './components/Navbar'
+import Masonry from './components/Masonry'
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
@@ -14,9 +15,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Navbar />
-      <div className="App">
-        <h1> Hello World </h1>
-      </div>
+      <Masonry />
     </ApolloProvider>
   );
 
