@@ -32,8 +32,8 @@ type comments {
 }
 
 type Query {
-  allUsers: [User]!
-  oneUser (userId: ID!): User
+  users: [User]!
+  OneUser (userId: ID!): User
   allRecipes: [Recipe]!
   oneRecipe (recipeID: ID!): Recipe
 
