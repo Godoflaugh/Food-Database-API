@@ -4,18 +4,19 @@ const { GraphQLDateTime } = require('graphql-iso-date')
 
 const { signToken } = require('../utils/auth')
 
-const customScalarResolver = {
-  Date: GraphQLDateTime
-}
+// const customScalarResolver = {
+//   Date: GraphQLDateTime
+// }
 
 const resolvers = {
   Query: {
 
     users: async () => {
-      return User.find().sort({ createdAt: -1 })
+      console.log("hi")
+      return await User.find().sort({ createdAt: -1 })
     },
 
-    oneUser: async (parent, { username }) => {
+    user: async (parent, { username }) => {
       return User.findOne({ username: username })
     },
 
@@ -55,4 +56,6 @@ const resolvers = {
 
 
 
-module.exports = customScalarResolver, resolvers
+module.exports = resolvers
+
+// customScalarResolver,
