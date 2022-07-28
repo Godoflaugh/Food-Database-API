@@ -12,10 +12,11 @@ const resolvers = {
   Query: {
 
     users: async () => {
-      return User.find().sort({ createdAt: -1 })
+      console.log("hi")
+      return await User.find().sort({ createdAt: -1 })
     },
 
-    oneUser: async (parent, { username }) => {
+    user: async (parent, { username }) => {
       return User.findOne({ username: username })
     },
 

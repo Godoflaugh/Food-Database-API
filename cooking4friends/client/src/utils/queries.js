@@ -9,3 +9,25 @@ export const QUERY_USERS = gql`
     }
   }
 `
+
+export const QUERY_RECIPES = gql`
+  query getRecipes {
+    allRecipes {
+      _id
+      recipeName
+      username
+      ingredients
+      cookingTime
+      instructions
+      equipment
+      img
+      createdAt
+      comments{
+        commentBody
+        createAt
+        username
+      }
+    }
+  }
+`
+
