@@ -25,7 +25,6 @@ function App() {
         </div>
       </Router>
       
-      <Navbar />
       <Masonry />
     </ApolloProvider>
   );
