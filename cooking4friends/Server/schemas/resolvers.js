@@ -2,19 +2,18 @@ const { gql } = require('apollo-server-express')
 const { Recipe, User } = require('../models')
 const { GraphQLDateTime } = require('graphql-iso-date')
 
+const { signToken } = require('../utils/auth')
+
 const customScalarResolver = {
   Date: GraphQLDateTime
 }
 
 const resolvers = {
   Query: {
-    string: async () => {
-      return 'hello'
-    },
-    recipe: async () => {
-      return Recipe.find({})
-    },
 
+    users: async () => {
+      return User.find().sort({ createdAt: -1 })
+    },
 
     oneUser: async (parent, { username }) => {
       return User.findOne({ username: username })

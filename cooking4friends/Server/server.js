@@ -23,63 +23,9 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-// //EJS as templating engine
-// app.set("view engine", "ejs")
-
-// //Multer code for Image processing
-// var storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'uploads')
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.fieldname + '_' + Date.now())
-//   }
-// })
-
-// var upload = multer({storage: storage})
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')))
 }
-
-// //Get request handler that provies the HTML UI
-// app.get('/', (req, res) => {
-//   imgModel.find({}, (err, items) => {
-//     if (err) {
-//       console.log(err);
-//       res.status(500).send('An error occurred', err);
-//     }
-//     else {
-//       res.render('imagesPage', { items: items });
-//     }
-//   });
-// });
-
-// //Get request handler that provies the uploaded file
-// app.post('/', upload.single('image'), (req, res, next) => {
-
-//   var obj = {
-//     name: req.body.name,
-//     desc: req.body.desc,
-//     img: {
-//       data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-//       contentType: 'image/png'
-//     }
-//   }
-//   imgModel.create(obj, (err, item) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     else {
-//       // item.save();
-//       res.redirect('/');
-//     }
-//   });
-// });
-
-// app.get('/', (req, res) => {
-//   res.sendfile(path.join(__dirname, '../client/build/index.html'))
-// })
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start()
