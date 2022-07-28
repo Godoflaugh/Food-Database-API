@@ -4,9 +4,9 @@ const { GraphQLDateTime } = require('graphql-iso-date')
 
 const { signToken } = require('../utils/auth')
 
-const customScalarResolver = {
-  Date: GraphQLDateTime
-}
+// const customScalarResolver = {
+//   Date: GraphQLDateTime
+// }
 
 const resolvers = {
   Query: {
@@ -56,4 +56,6 @@ const resolvers = {
 
 
 
-module.exports = customScalarResolver, resolvers
+module.exports = resolvers
+
+// customScalarResolver,

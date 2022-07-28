@@ -1,8 +1,7 @@
 const { gql } = require('apollo-server-express')
-const { GraphQLDate, GraphQLTime, GraphQLDateTime } = require('graphql-iso-date')
+// const { GraphQLDate, GraphQLTime, GraphQLDateTime } = require('graphql-iso-date')
 
 const typeDefs = gql`
-scalar Date
 
 
 type User {
@@ -27,7 +26,7 @@ type Recipe {
 type comments {
   _id: ID
   commentBody: String!
-  createAt: Date!
+  createAt: String!
   username: String!
 }
 
