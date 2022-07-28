@@ -3,6 +3,8 @@ import React from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Masonry from './components/Masonry'
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
 const client = new ApolloClient({
@@ -23,6 +25,8 @@ function App() {
         </div>
       </Router>
       
+      <Navbar />
+      <Masonry />
     </ApolloProvider>
   );
 }
