@@ -3,8 +3,10 @@ import React from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Masonry from './components/Masonry'
+// import Masonry from './components/Masonry'
+import Recipeform from './components/Recipeform'
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 
 
 const client = new ApolloClient({
@@ -21,12 +23,13 @@ function App() {
           <Routes>
             <Route path="/" element={<test />}
             />
+            <Route path="/recipeform" element={<Recipeform />} />
           </Routes>
         </div>
       </Router>
+
       
-      <Navbar />
-      <Masonry />
+      {/* <Masonry /> */}
     </ApolloProvider>
   );
 }
