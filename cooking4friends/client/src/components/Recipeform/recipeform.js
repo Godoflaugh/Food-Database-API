@@ -61,7 +61,7 @@ export default class RecipeForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Recipe Name:
-            <input type="text" id="recipeName" onChange={this.handleChange} />
+            <input type="text" id="recipeName"  onChange={this.handleChange} />
           </label>
           <label>
             Ingredients:
