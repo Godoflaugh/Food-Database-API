@@ -31,12 +31,13 @@ var storage = multer.diskStorage({
     cb(null, join(__dirname, 'uploads'))
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now())
+    cb(null, file.name + '-' + Date.now())
   }
 });
 
 var upload = multer({ storage: storage });
 var Image = require('./models/Image')
+var Recipe = require('./models/Recipe')
 
 app.get('/', (req, res) => {
   Image.find({}, (err, items) => {
@@ -51,16 +52,21 @@ app.get('/', (req, res) => {
   });
 });
 app.post('/upload', upload.single('img'), (req, res, next) => {
-
-  var obj = {
-    name: req.body.name,
-    desc: req.body.desc,
+  console.log(req.body)
+  var recipe = {
+    recipeName: req.body.recipeName,
+    ingredients: req.body.ingredients,
+    cookingTime: req.body.cookingTime,
+    instructions: req.body.instructions,
+    equipment: req.body.equipment,
     img: {
       data: fs.readFileSync(join(__dirname, 'uploads', req.file.filename)),
       contentType: 'image/png'
     }
   }
-  Image.create(obj, (err, item) => {
+
+  
+  Recipe.create(recipe, (err, item) => {
     if (err) {
       console.log(err);
     }

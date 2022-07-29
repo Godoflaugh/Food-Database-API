@@ -12,7 +12,7 @@ const recipeSchema = new Schema(
     },
     username: {
       type: String,
-      required: true,
+
       //* This needs to relate to a user that exists.
       ref: "user"
     },
