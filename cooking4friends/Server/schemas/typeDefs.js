@@ -7,6 +7,7 @@ type User {
   _id: ID
   username: String
   email: String
+  password: String
 }
 
 type Image {
@@ -42,7 +43,9 @@ type Query {
 }
 
 type Mutation {
-  createUser(username: String!, email: String!): User
+  
+  addUser(username: String!, email: String!, password: String!): Auth
+  login(email: String!, password: String!): Auth
   updateUser(username: String!): User
   createRecipe(recipeName: String!, username: String!, ingredients: String!, cookingTime: String!, instructions: String!, equipment: String!, img: String): Recipe
   addComment(commentBody: String!, username: String!): comments
@@ -51,3 +54,5 @@ type Mutation {
 
 `
 module.exports = typeDefs
+
+// createUser(username: String!, email: String!): User
