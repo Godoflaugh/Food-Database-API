@@ -18,15 +18,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar />
+        
         <div className="container">
           <Routes>
             <Route path="/" element={<test />}
             />
             <Route path="/recipeform" element={<Recipeform />} />
           </Routes>
-          {/* <Home /> */}
-          <p>Hello World</p>
         </div>
       </Router>
 
