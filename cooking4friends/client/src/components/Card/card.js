@@ -26,66 +26,24 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        // subheader="username?"
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
-      {/* <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium inventore cum maxime beatae expedita placeat aut quo nulla molestiae, culpa illo repudiandae voluptates dignissimos obcaecati ab doloribus saepe et eligendi.
-        </Typography>
-      </CardContent> */}
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-          
-        </CardContent>
-      </Collapse>
-    </Card>
-  );
-}
+
+return (
+  <div>
+    <h3>{title}</h3>
+    {recipes && recipes.map((recipe) => (
+      <div>
+        <p>{recipe._id}</p>
+        <p>{recipe.recipeName}</p>
+        <p>Created by: {recipe.username}</p>
+        <p>Ingredients List {recipe.ingredients} </p>
+        <p>{recipe.cookingTime} </p>
+        <p>Instructions {recipe.instructions} </p>
+        <p>Equipment {recipe.equipment}</p>
+        <img src={recipe.picture} alt="Recipe img">
+        </img>
+      </div>
+    ))}
+  </div>
+)

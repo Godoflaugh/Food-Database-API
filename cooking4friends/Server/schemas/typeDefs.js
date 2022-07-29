@@ -1,5 +1,4 @@
 const { gql } = require('apollo-server-express')
-// const { GraphQLDate, GraphQLTime, GraphQLDateTime } = require('graphql-iso-date')
 
 const typeDefs = gql`
 
@@ -10,15 +9,19 @@ type User {
   email: String
 }
 
+type Image {
+    data: String
+    contentType: String
+}
+
 type Recipe {
   _id: ID
   recipeName: String
   username: String
   ingredients: String
-  cookingTime: String
+  cookingTime: Int
   instructions: String
   equipment: String
-  img: String
   comments: [comments]!
 
 }
@@ -33,8 +36,8 @@ type comments {
 type Query {
   users: [User]!
   user (userId: ID!): User
-  allRecipes: [Recipe]!
-  oneRecipe (recipeID: ID!): Recipe
+  recipes: [Recipe]!
+  recipe (recipeID: ID!): Recipe
 
 }
 

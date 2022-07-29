@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // import Masonry from './components/Masonry'
 import Recipeform from './components/Recipeform'
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './components/pages/Home'
 
 
 
@@ -21,16 +21,12 @@ function App() {
         <Navbar />
         <div className="container">
           <Routes>
-            <Route path="/" element={<test />}
+            <Route path="/" element={<Home />}
             />
             <Route path="/recipeform" element={<Recipeform />} />
           </Routes>
-          {/* <Home /> */}
-          <p>Hello World</p>
         </div>
       </Router>
-
-      
       {/* <Masonry /> */}
     </ApolloProvider>
   );

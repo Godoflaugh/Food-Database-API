@@ -12,7 +12,7 @@ export const QUERY_USERS = gql`
 
 export const QUERY_RECIPES = gql`
   query getRecipes {
-    allRecipes {
+    recipes {
       _id
       recipeName
       username
@@ -20,12 +20,8 @@ export const QUERY_RECIPES = gql`
       cookingTime
       instructions
       equipment
-      img
-      createdAt
       comments{
         commentBody
-        createAt
-        username
       }
     }
   }
