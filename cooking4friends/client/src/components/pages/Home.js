@@ -5,6 +5,7 @@ import RecipePage from '../RecipePage'
 
 import { QUERY_RECIPES } from '../../utils/queries.js'
 import { QUERY_USERS } from '../../utils/queries.js'
+import background from '../Images/bkrf.jpg'
 
 const Home = () => {
 
@@ -20,22 +21,25 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
-        <UserPage
-          users={users}
-          title="Hello World"
-        />
+
+      <div className="container" style={{ backgroundImage: `url(${background})`, color: 'Black', fontWeight: 'bold', paddingTop: '310px', paddingBottom: '600px', backgroundSize: 'cover' }}>
+        <h1 style={{ textAlign: "center" }}>Welcome to Send Foodz, you're one stop shop for all delicious food recipes and discussion</h1>
+        <div className="flex-row justify-center">
+          <UserPage
+            users={users}
+            title="Hello World"
+          />
+        </div>
+
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <RecipePage
+            recipes={recipes}
+            title="Recipe Page"
+          />
+        )}
       </div>
-
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <RecipePage
-          recipes={recipes}
-          title="Recipe Page"
-        />
-      )}
-
     </main>
   )
 

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // import Masonry from './components/Masonry'
 import Recipeform from './components/Recipeform'
 import Home from './components/pages/Home'
-
+import background from './components/Images/bkrf.jpg'
 
 
 const client = new ApolloClient({
@@ -19,13 +19,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
-        <div className="container">
+        
           <Routes>
             <Route path="/" element={<Home />}
             />
             <Route path="/recipeform" element={<Recipeform />} />
           </Routes>
-        </div>
+        
+
       </Router>
       {/* <Masonry /> */}
     </ApolloProvider>

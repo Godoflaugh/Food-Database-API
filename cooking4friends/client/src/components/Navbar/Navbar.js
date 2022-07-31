@@ -55,7 +55,7 @@ const NavBar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Send Foodz
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
