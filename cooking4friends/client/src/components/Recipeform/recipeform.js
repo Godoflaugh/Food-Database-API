@@ -8,7 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import background from "../assets/images/bkrf.jpg"
+import background from "../Images/bkrf.jpg"
 const axios = require('axios')
 
 

@@ -8,7 +8,6 @@ import Recipeform from './components/Recipeform'
 import Home from './components/pages/Home'
 
 
-
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
@@ -17,16 +16,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />}
-            />
-            <Route path="/recipeform" element={<Recipeform />} />
-          </Routes>
-        </div>
-      </Router>
+
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}
+        />
+        <Route path="recipes" element={<Recipeform />} />
+      </Routes>
+
       {/* <Masonry /> */}
     </ApolloProvider>
   );
