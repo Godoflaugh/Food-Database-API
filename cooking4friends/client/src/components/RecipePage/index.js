@@ -1,5 +1,4 @@
 import React from 'react';
-import background from "../Images/bkrf.jpg"
 
 const RecipePage = ({ recipes, title }) => {
   console.log(recipes)
@@ -8,8 +7,7 @@ const RecipePage = ({ recipes, title }) => {
   }
 
   return (
-
-    <div style={{ backgroundImage: `url(${background})` }}>
+    <div>
       <h3>{title}</h3>
       {recipes && recipes.map((recipe) => (
         <div>
@@ -18,6 +16,7 @@ const RecipePage = ({ recipes, title }) => {
           <p>{recipe.ingredients}</p>
         </div>
       ))}
+
 
     </div>
   )

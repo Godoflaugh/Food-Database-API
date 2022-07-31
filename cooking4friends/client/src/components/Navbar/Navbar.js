@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom'
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 const pages = ['Recipes', 'Users(Coming Soon)', 'Blog(Coming Soon)'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -68,7 +69,7 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <RestaurantMenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
