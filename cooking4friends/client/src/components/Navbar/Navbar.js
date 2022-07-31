@@ -12,11 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom'
 
-const pages = ['Home', 'Recipe', 'Blog'];
+const pages = ['Recipes', 'Users(Coming Soon)', 'Blog(Coming Soon)'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const NavBar = () => {
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -89,7 +90,11 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+                      {page}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -120,7 +125,9 @@ const NavBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -159,4 +166,4 @@ const NavBar = () => {
     </AppBar>
   );
 };
-export default NavBar;
+export default ResponsiveAppBar;
