@@ -1,6 +1,14 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import { flexbox, sizeHeight } from '@mui/system';
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import background from "../assets/images/bkrf.jpg"
 const axios = require('axios')
 
 
@@ -57,35 +65,49 @@ export default class RecipeForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <Grid container justifyContent="center" style={{ backgroundImage: `url(${background})`, color: 'Black', fontWeight: 'bold', paddingTop: '310px', paddingBottom: '200px', backgroundSize: 'cover' }}>
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <Grid item paddingBottom="25px" paddingTop="25px">
             Recipe Name:
-            <input type="text" id="recipeName"  onChange={this.handleChange} />
-          </label>
-          <label>
-            Ingredients:
-            <input type="text" id="ingredients" onChange={this.handleChange} />
-          </label>
-          <label>
-            Cooking Time:
-            <input type="number" id="cookingTime" onChange={this.handleChange} />
-          </label>
-          <label>
-            Instructions:
-            <input type="text" id="instructions" onChange={this.handleChange} />
-          </label>
-          <label>
-            Equipment:
-            <input type="text" id="equipment" onChange={this.handleChange} />
-          </label>
-          <label>
+            <Grid item>
+              <TextField type="text" inputProps={{ 'aria-label': 'instructions' }} style={{ width: '300px', marginTop: '7px', color: 'black', backgroundColor: 'lightgrey', opacity: '70%' }} id="recipeName" onChange={this.handleChange} />
+            </Grid>
+          </Grid>
+          <Grid item paddingTop="25px">
             Image:
-            <input type="file" id='file' name="img" onChange={this.fileChangedHandler} />
-          </label>
-          <button type="submit">Post Recipe</button>
+            <input type="file" style={{ height: '50px', width: '200px', paddingLeft: '25px' }} id='file' name="img" onChange={this.fileChangedHandler} />
+          </Grid>
+          <Grid item paddingBottom="25px" display="flex" alignItems="center">
+            Cooking Time:
+            <Grid item>
+              <OutlinedInput type="number" style={{ height: '25px', width: '200px', marginTop: '7px', marginLeft: '10px', opacity: '80%', backgroundColor: 'lightgrey' }} endAdornment={<InputAdornment position="end">Minutes</InputAdornment>} id="cookingTime" onChange={this.handleChange} />
+            </Grid>
+          </Grid>
+          <Grid item paddingBottom="37px">
+            Equipment:
+            <Grid item>
+              <TextField type="text" multiline rows={3} inputProps={{ 'aria-label': 'instructions' }} style={{ width: '600px', backgroundColor: 'lightgrey', opacity: '70%', marginTop: '5px' }} id="equipment" onChange={this.handleChange} />
+            </Grid>
+          </Grid>
+          <Grid item paddingBottom="25px">
+            Ingredients:
+            <Grid item>
+              <TextField type="text" multiline rows={3} inputProps={{ 'aria-label': 'instructions' }} style={{ width: '600px', color: 'black', backgroundColor: 'lightgrey', opacity: '70%', marginTop: '5px' }} id="ingredients" onChange={this.handleChange} />
+            </Grid>
+          </Grid>
+          <Grid item paddingBottom="25px">
+            Instructions:
+            <Grid item>
+              <TextField type="text" multiline rows={3} inputProps={{ 'aria-label': 'instructions' }} style={{ width: '600px', color: 'black', backgroundColor: 'lightgrey', opacity: '70%', marginTop: '5px' }} id="instructions" onChange={this.handleChange} />
+            </Grid>
+          </Grid>
+          <Grid Container>
+            <Grid item>
+              <button type="submit" style={{ height: '90px', width: '598px', fontSize: '25px', marginBottom: '25px', marginTop: '5px' }}>Post Recipe</button>
+            </Grid>
+          </Grid>
         </form>
-      </div>
+      </Grid>
     )
   }
 

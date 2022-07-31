@@ -26,6 +26,7 @@ const Home = () => {
           title="Hello World"
         />
       </div>
+
       {loading ? (
         <div>Loading...</div>
       ) : (

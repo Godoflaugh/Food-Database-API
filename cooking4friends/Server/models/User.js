@@ -23,7 +23,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       minlength: 4,
-    }
+    },
 
     // comments: [
     //   {
@@ -32,12 +32,12 @@ const userSchema = new Schema(
     //   },
     // ],
 
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      }
-    ]
+    // friends: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "User",
+    //   }
+    // ]
   },
   {
     toJson: {
