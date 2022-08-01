@@ -23,6 +23,7 @@ type Recipe {
   cookingTime: Int
   instructions: String
   equipment: String
+  picture: Image
   comments: [comments]!
 
 }

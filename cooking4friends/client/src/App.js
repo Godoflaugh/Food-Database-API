@@ -3,7 +3,6 @@ import React from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Masonry from './components/Masonry'
 import Recipeform from './components/Recipeform'
 import Home from './components/pages/Home'
 
@@ -23,7 +22,6 @@ function App() {
         />
         <Route path="recipes" element={<Recipeform />} />
       </Routes>
-      <Masonry />
     </ApolloProvider>
   );
 }

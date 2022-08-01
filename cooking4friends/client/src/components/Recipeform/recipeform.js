@@ -19,7 +19,7 @@ export default class RecipeForm extends React.Component {
     cookingTime: '',
     instructions: '',
     equipment: '',
-    img: '',
+    picture: '',
     selectedFile: null
 
   }
@@ -47,7 +47,7 @@ export default class RecipeForm extends React.Component {
 
     console.log(this.state.selectedFile)
     const recipe = new FormData()
-    recipe.append('img', this.state.selectedFile)
+    recipe.append('picture', this.state.selectedFile)
     recipe.append('recipeName', this.state.recipeName)
     recipe.append('ingredients', this.state.ingredients)
     recipe.append('cookingTime', this.state.cookingTime)
@@ -75,7 +75,7 @@ export default class RecipeForm extends React.Component {
           </Grid>
           <Grid item paddingTop="25px">
             Image:
-            <input type="file" style={{ height: '50px', width: '200px', paddingLeft: '25px' }} id='file' name="img" onChange={this.fileChangedHandler} />
+            <input type="file" style={{ height: '50px', width: '200px', paddingLeft: '25px' }} id='file' name="picture" onChange={this.fileChangedHandler} />
           </Grid>
           <Grid item paddingBottom="25px" display="flex" alignItems="center">
             Cooking Time:

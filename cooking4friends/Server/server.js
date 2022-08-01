@@ -50,7 +50,21 @@ app.get('/', (req, res) => {
     }
   });
 });
-app.post('/upload', upload.single('img'), (req, res, next) => {
+
+app.get('/recipes', (req, res) => {
+  Recipe.find({}, (err, items) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send('An error occurred', err);
+    }
+    else {
+      // res.render('imagesPage', { items: items });
+      res.json(items)
+    }
+  });
+});
+
+app.post('/upload', upload.single('picture'), (req, res, next) => {
   console.log(req.body)
   var recipe = {
     recipeName: req.body.recipeName,
@@ -58,7 +72,7 @@ app.post('/upload', upload.single('img'), (req, res, next) => {
     cookingTime: req.body.cookingTime,
     instructions: req.body.instructions,
     equipment: req.body.equipment,
-    img: {
+    picture: {
       data: fs.readFileSync(join(__dirname, 'uploads', req.file.filename)),
       contentType: 'image/png'
     }

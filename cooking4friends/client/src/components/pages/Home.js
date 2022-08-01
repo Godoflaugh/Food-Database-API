@@ -15,17 +15,24 @@ const Home = () => {
   const users = userData?.users || []
   console.log(users)
 
-  const { loading, data } = useQuery(QUERY_RECIPES)
-  const recipes = data?.recipes || []
-  console.log(recipes)
+  // const { loading, data } = useQuery(QUERY_RECIPES)
+  // const recipes = data?.recipes || []
+  // console.log(recipes)
 
   // const [pictureData, setData] = useState([])
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:3000")
-  //     .then((res) => setData(res.pictureData))
-  //     .catch((err) => console.log(err, "There is an error"))
-  // })
+
+  //The /express route from the server.js is then referred to here as the get route to access the data base. The recipeData variable the data that will need to be passed to the specifc page that will utilize the data and rendering it.
+  const [recipeData, setRecipeData] = useState([])
+  useEffect(() => {
+    axios
+      .get("/recipes")
+      .then((res) => {
+        console.log(res)
+        setRecipeData(res.data)
+      })
+      .catch((err) => console.log(err, "There is an error"))
+
+  }, [])
 
   // TODO This screen is for the main page that will have the accordian style cards from MUI that will scale responsively to the content inside. Each card will dispaly the image of the recipe as well as the recipe name and user name. Once the card is clicked on then It will take it too a new page that will expand the image and show the full instructions for the recipe.
 
@@ -34,21 +41,18 @@ const Home = () => {
 
       <div className="container" style={{ backgroundImage: `url(${background})`, color: 'Black', fontWeight: 'bold', paddingTop: '310px', paddingBottom: '600px', backgroundSize: 'cover' }}>
         <h1 style={{ textAlign: "center" }}>Welcome to Send Foodz, you're one stop shop for all delicious food recipes and discussion</h1>
-        <div className="flex-row justify-center">
+        {/* <div className="flex-row justify-center">
           <UserPage
             users={users}
             title="Hello World"
           />
-        </div>
+        </div> */}
 
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <RecipePage
-            recipes={recipes}
-            title="Recipe Page"
-          />
-        )}
+
+        <RecipePage
+          recipes={recipeData}
+          title="Recipe Page"
+        />
       </div>
 
       {/* <div className="App">

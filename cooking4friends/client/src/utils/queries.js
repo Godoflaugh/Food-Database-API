@@ -20,6 +20,7 @@ export const QUERY_RECIPES = gql`
       cookingTime
       instructions
       equipment
+      picture
       comments{
         commentBody
       }
