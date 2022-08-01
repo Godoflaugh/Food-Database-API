@@ -22,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />}
         />
         <Route path="recipes" element={<Recipeform />} />
+        
       </Routes>
 
       <Masonry />
