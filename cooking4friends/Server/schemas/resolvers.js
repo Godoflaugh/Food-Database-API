@@ -50,8 +50,8 @@ const resolvers = {
       return { token, user };
     },
 
-    createRecipe: async (parent, { recipeName, username, ingredients, cookingTime, instructions, equipment, img }) => {
-      return Recipe.create({ recipeName, username, ingredients, cookingTime, instructions, equipment, img })
+    createRecipe: async (parent, { recipeName, username, ingredients, cookingTime, instructions, equipment, picture }) => {
+      return Recipe.create({ recipeName, username, ingredients, cookingTime, instructions, equipment, picture })
     },
     addComment: async (parent, { recipeId, commentBody }) => {
       return Recipe.findOneAndUpdate(
