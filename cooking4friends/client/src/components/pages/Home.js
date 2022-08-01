@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { useQuery } from '@apollo/client'
 import UserPage from '../UserPage'
 import RecipePage from '../RecipePage'
@@ -16,6 +18,14 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_RECIPES)
   const recipes = data?.recipes || []
   console.log(recipes)
+
+  // const [pictureData, setData] = useState([])
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3000")
+  //     .then((res) => setData(res.pictureData))
+  //     .catch((err) => console.log(err, "There is an error"))
+  // })
 
   // TODO This screen is for the main page that will have the accordian style cards from MUI that will scale responsively to the content inside. Each card will dispaly the image of the recipe as well as the recipe name and user name. Once the card is clicked on then It will take it too a new page that will expand the image and show the full instructions for the recipe.
 
@@ -40,9 +50,18 @@ const Home = () => {
           />
         )}
       </div>
-    </main>
-  )
 
+      {/* <div className="App">
+        <h1>Image uploading react</h1>
+        {pictureData.map((singleData) => {
+          const base64String = btoa(
+            String.fromCharCode(...new Uint8Array(singleData.img.data.data))
+          );
+          return <img alt="test" src={`data:image/png;base64,${base64String}`} width="300" />
+        })}
+      </div> */}
+    </main >
+  )
 }
 
 export default Home

@@ -24,7 +24,6 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-var multer = require('multer');
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -40,7 +39,7 @@ var Image = require('./models/Image')
 var Recipe = require('./models/Recipe')
 
 app.get('/', (req, res) => {
-  Image.find({}, (err, items) => {
+  Recipe.find({}, (err, items) => {
     if (err) {
       console.log(err);
       res.status(500).send('An error occurred', err);
@@ -65,7 +64,7 @@ app.post('/upload', upload.single('img'), (req, res, next) => {
     }
   }
 
-  
+
   Recipe.create(recipe, (err, item) => {
     if (err) {
       console.log(err);

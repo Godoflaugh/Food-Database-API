@@ -12,7 +12,7 @@ const RecipePage = ({ recipes, title }) => {
       {recipes && recipes.map((recipe) => (
         <div>
           <p>{recipe.ingredients}</p>
-          <img src={recipe.img} alt='food'></img>
+          <img src={recipe.picture} alt='food'></img>
           <p>{recipe.ingredients}</p>
         </div>
       ))}
@@ -20,7 +20,6 @@ const RecipePage = ({ recipes, title }) => {
 
     </div>
   )
-
 }
 
 export default RecipePage

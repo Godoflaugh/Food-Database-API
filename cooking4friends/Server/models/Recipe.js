@@ -36,9 +36,12 @@ const recipeSchema = new Schema(
       type: String,
       required: true,
     },
-    img: {
+    picture: {
       data: Buffer,
-      contentType: String
+      contentType: {
+        type: String,
+        default: 'img/png'
+      }
     },
     comments: [
       {
