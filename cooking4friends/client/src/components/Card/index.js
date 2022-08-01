@@ -1,1 +1,1 @@
-export { default } from './Masonry'
+export { default } from './card'
