@@ -5,7 +5,6 @@
   ## Table-of-Contents
   * [Description & Deployment](#descriptio-&-Deployment)
   * [Elevator Pitch](#Elevator-Pitch)
-  * [Wireframe](#wireframe)
   * [License](#license)    
   * [Contributing](#contributing)
   * [Questions](#questions)
